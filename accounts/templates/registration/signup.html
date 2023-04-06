@@ -1,0 +1,13 @@
+<h2>Sign up</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Sign Up</button>
+</form>
+<p>Or <a href="{% url 'login' %}">Login</a></p>
+
+<style>
+  .errorlist {
+    color: red;
+  }
+</style>
