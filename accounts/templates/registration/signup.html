@@ -1,13 +1,74 @@
-<h2>Sign up</h2>
+<h2 style="text-align: center">Sign Up / <a href="{% url 'login' %}">Log In</a></h2>
 <form method="post">
   {% csrf_token %}
-  {{ form.as_p }}
+  <div>
+    <label style="padding-right: 55px" for="id_username">Username:</label>
+    {{ form.username }}
+    {% if form.username.errors %}
+      <div class="errorlist">
+        {% for error in form.username.errors %}
+          <div>{{ error }}</div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+  <div>
+    <label style="padding-right: 57px" for="id_password1">Password:</label>
+    {{ form.password1 }}
+    {% if form.password1.errors %}
+      <div class="errorlist">
+        {% for error in form.password1.errors %}
+          <div>{{ error }}</div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+  <div>
+    <label style="padding-right: 0" for="id_password2">Confirm Password:</label>
+    {{ form.password2 }}
+    {% if form.password2.errors %}
+      <div class="errorlist">
+        {% for error in form.password2.errors %}
+          <div>{{ error }}</div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
   <button type="submit">Sign Up</button>
 </form>
-<p>Or <a href="{% url 'login' %}">Login</a></p>
 
 <style>
-  .errorlist {
-    color: red;
-  }
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+label {
+  margin-right: 10px;
+}
+input[type="text"], input[type="password"], input[type="email"] {
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  width: 250px;
+  margin-bottom: 10px;
+}
+button[type="submit"] {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #4CAF50;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+button[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+.errorlist {
+  color: red;
+  margin-bottom: 10px;
+}
 </style>

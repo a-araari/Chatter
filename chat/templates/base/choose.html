@@ -1,0 +1,70 @@
+<p><a href="{% url 'logout' %}">Log Out</a></p>
+
+<section>
+    <h2>Choose the user to chat with:</h2>
+    {% if users|length == 0 %}
+    ------------ There is no users, yet! ------------
+    {% endif %}
+    {% for user in users %}
+        <a href="?reciever_id={{ user.id }}">{{ user.username }}</a>
+    {% endfor %}
+</section>
+
+<style>
+    a {
+        color: white;
+    }
+    html,
+    body {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+        background: #1c1e22;
+        color: white;
+    }
+    body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    section {
+        text-align: center;
+    }
+    h2 {
+        color: yellow;
+    }
+    a {
+        display: inline-block;
+        padding: 10px 20px;
+        margin: 10px;
+        border: 2px solid #008CBA;
+        background-color: #008CBA;
+        color: #fff;
+        text-align: center;
+        text-decoration: none;
+        font-size: 16px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+    a:hover {
+        background-color: #fff;
+        color: #008CBA;
+        cursor: pointer;
+    }
+    ::-webkit-scrollbar {
+        width: 4px;
+    }
+    ::-webkit-scrollbar-thumb {
+        background-color: #4c4c6a;
+        border-radius: 2px;
+    }
+    .flr {
+        flex: 1 0 auto;
+        display: flex;
+        flex-direction: column;
+        width: calc(100% - 50px);
+    }
+</style>
