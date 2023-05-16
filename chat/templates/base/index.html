@@ -5,8 +5,8 @@
     <a href="{% url 'logout' %}">Log Out</a>
 </div>
 
-<h2 style="color: white">You are: <span style="color: yellow;">{{ user.username }}</span></h2>
-<h2 style="color: white">Chatting with: <span style="color: yellow;">{{ reciever.username }}</span></h2>
+<h2>You are: <span style="color: red">{{ user.username }}</span></h2>
+<h2>Chatting with: <span style="color: red">{{ reciever.username }}</span></h2>
 <section class="chatbox">
     <section class="chat-window">
         {% for message in messages %}
@@ -21,7 +21,7 @@
                     </div>
                     <span class="timestamp"><span class="username">You</span>&bull;<span class="posttime">{{ message.created_at.time }}</span></span>
                   </div>
-                  <img class="user-img" id="user-0" src="//gravatar.com/avatar/56234674574535734573000000000001?d=retro" />
+                  <img class="user-img" id="user-0" src="https://www.1min30.com/wp-content/uploads/2019/06/Tunisie-Telecom-logo-1.jpg" />
                 </div>
                 <div class="msg-box msg-box-x">
                     X
@@ -30,7 +30,7 @@
             {% else %}
               <article class="msg-container msg-remote" id="msg-0">
                 <div class="msg-box">
-                  <img class="user-img" id="user-0" src="//gravatar.com/avatar/00034587632094500000000000000000?d=retro" />
+                  <img class="user-img" id="user-0" src="https://img.freepik.com/premium-vector/female-user-profile-avatar-is-woman-character-screen-saver-with-emotions_505620-617.jpg" />
                   <div class="flr">
                     <div class="messages">
                       <p class="msg" id="msg-0">
@@ -77,9 +77,9 @@ document.addEventListener("DOMContentLoaded", function() {
         imgUser.classList.add('user-img');
         imgUser.id = `user-${message.sender_id}`;
         if (message.sender === "{{ user.username }}") {
-            imgUser.src = `//gravatar.com/avatar/56234674574535734573000000000001?d=retro`;
+            imgUser.src = `https://www.1min30.com/wp-content/uploads/2019/06/Tunisie-Telecom-logo-1.jpg`;
         } else {
-            imgUser.src = `//gravatar.com/avatar/00034587632094500000000000000000?d=retro`;
+            imgUser.src = `https://img.freepik.com/premium-vector/female-user-profile-avatar-is-woman-character-screen-saver-with-emotions_505620-617.jpg`;
         }
 
         const divFlr = document.createElement('div');
@@ -183,7 +183,7 @@ document.addEventListener("DOMContentLoaded", function() {
         margin: 0;
         padding: 0;
         font-family: sans-serif;
-        background: #1c1e22;
+        background: white;
     }
     body {
         display: flex;
@@ -217,9 +217,8 @@ document.addEventListener("DOMContentLoaded", function() {
         cursor: pointer;
     }
     .chatbox {
-        width: 300px;
-        height: 400px;
-        max-height: 400px;
+        width: 600px;
+        height: 600px;
         display: flex;
         flex-direction: column;
         overflow: hidden;
@@ -228,7 +227,7 @@ document.addEventListener("DOMContentLoaded", function() {
     .chat-window {
         flex: auto;
         max-height: calc(100% - 60px);
-        background: #2f323b;
+        background: #ffffff;
         overflow: auto;
     }
     .chat-input {
@@ -343,7 +342,6 @@ document.addEventListener("DOMContentLoaded", function() {
         float: right;
     }
     .msg-self .user-img {
-        margin: 0 0 10px 10px;
     }
     .msg-self .msg {
         text-align: right;
